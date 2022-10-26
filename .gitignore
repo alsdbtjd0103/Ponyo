@@ -1,0 +1,17 @@
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+.env
+Server/*.pt 
+# 모델 크기로 인해 gitignore
+
+# macOS
+.DS_Store
