@@ -206,7 +206,7 @@ function MonthReportScreen() {
     loadMonthCalory(userCtx.id,setMonthCalory);
     getHealthScore(userCtx.id,setScore,getToday());
   },[]);
-  if (font&&blood&&monthCalory&&score) {
+  if (font&&blood&&score) {
     return (
       <SafeAreaView style={styles.rootContainer}>
         <ScrollView>
@@ -498,6 +498,7 @@ function MonthReportScreen() {
       </SafeAreaView>
     );
   } else {
+    console.log(font,blood,monthCalory,score);
     return (
       <LoadingPage message={'로딩중...'}/>
     );

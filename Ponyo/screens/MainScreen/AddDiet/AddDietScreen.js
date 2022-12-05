@@ -457,13 +457,13 @@ function AddDietScreen() {
             }}
             onChange={(item) => {
               //여기서 setCarbo등을 서버에서 받아온 값 * item.id로 만들어야함
-              setCarbo(originalValue.carbo*item.id);
-              setProtein(originalValue.protein*item.id);
-              setFat(originalValue.fat*item.id);
-              setCal(originalValue.cal*item.id);
-              setSugar(originalValue.sugar*item.id);
-              setNat(originalValue.nat*item.id);
-              setCol(originalValue.col*item.id);
+              setCarbo( parseInt(carbo===0 ? originalValue.carbo*item.id : carbo*item.id));
+              setProtein(parseInt(protein===0 ? originalValue.protein*item.id : protein*item.id));
+              setFat(parseInt(fat===0 ? originalValue.fat*item.id : fat));
+              setCal(parseInt(cal===0 ? originalValue.cal*item.id : cal));
+              setSugar(parseInt(sugar===0 ? originalValue.sugar*item.id : sugar));
+              setNat(parseInt(nat===0 ? originalValue.nat*item.id : nat));
+              setCol(parseInt(col===0 ? originalValue.col*item.id : col));
             }}
           />
           </View>
@@ -536,9 +536,11 @@ function AddDietScreen() {
           <Text style={styles.label}>하루 섭취량</Text>
           <Text style={{ color: "#FF6838",paddingRight:30, }}>{cal} kcal</Text>
         </View>
-        <View style={{width:300,height:300}}>
-            {temps ? <Image source={temps} /> : null}
-        </View>
+        {temps ? (
+            <View style={{ width: 300, height: 300 }}>
+              <Image source={temps} />
+            </View>
+          ) : null}
         <View style={styles.submitButton}>
           <SignUpButton onPress={submitHandler}>추가하기</SignUpButton>
         </View>
@@ -620,7 +622,10 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   submitButton: {
+    flex:1,
     marginVertical: 5,
+    alignItems:'center',
+    justifyContent:'center'
   },
   text: {
     textAlign: "center",
